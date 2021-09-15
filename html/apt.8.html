@@ -1,0 +1,366 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Wed Sep 15 11:10:34 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>APT</title>
+
+</head>
+<body>
+
+<h1 align="center">APT</h1>
+
+<a href="#NOME">NOME</a><br>
+<a href="#SINOPSE">SINOPSE</a><br>
+<a href="#DESCRI&Ccedil;&Atilde;O">DESCRI&Ccedil;&Atilde;O</a><br>
+<a href="#UTILIZA&Ccedil;&Atilde;O DE SCRIPTS E DIFEREN&Ccedil;AS COM OUTRAS FERRAMENTAS DO APT">UTILIZA&Ccedil;&Atilde;O DE SCRIPTS E DIFEREN&Ccedil;AS COM OUTRAS FERRAMENTAS DO APT</a><br>
+<a href="#VEJA TAMB&Eacute;M">VEJA TAMB&Eacute;M</a><br>
+<a href="#DIAGN&Oacute;STICO">DIAGN&Oacute;STICO</a><br>
+<a href="#BUGS">BUGS</a><br>
+<a href="#TRADU&Ccedil;&Acirc;O">TRADU&Ccedil;&Acirc;O</a><br>
+<a href="#AUTOR">AUTOR</a><br>
+<a href="#NOTAS">NOTAS</a><br>
+
+<hr>
+
+
+<h2>NOME
+<a name="NOME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">apt - interface
+de linha de comandos</p>
+
+<h2>SINOPSE
+<a name="SINOPSE"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="89%">
+
+
+<p style="margin-top: 1em"><b>apt</b> [<b>-h</b>]
+[<b>-o=</b><i>config_string</i>]
+[<b>-c=</b><i>ficheiro_de_configura&ccedil;&atilde;o</i>]
+[<b>-t=</b><i>lan&ccedil;amento-alvo</i>]
+[<b>-a=</b><i>arquitectura</i>] {list | search | show |
+update |
+install&nbsp;<i>pkg&nbsp;</i>[{=<i>n&uacute;mero_de_vers&atilde;o_do_pacote&nbsp;</i>|&nbsp;/<i>lan&ccedil;amento-alvo</i>}]...
+| remove&nbsp;<i>pkg</i>... | upgrade | full-upgrade |
+edit-sources | {-v&nbsp;|&nbsp;--version} |
+{-h&nbsp;|&nbsp;--help}}</p> </td></tr>
+</table>
+
+<h2>DESCRI&Ccedil;&Atilde;O
+<a name="DESCRI&Ccedil;&Atilde;O"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">O <b>apt</b>
+disponibiliza uma interface de linha de comandos de alto
+n&iacute;vel para o sistema de gest&atilde;o de pacotes.
+Destina-se a ser uma interface para utilizador final e
+disp&otilde;e algumas op&ccedil;&otilde;es mais apropriadas
+para utiliza&ccedil;&atilde;o interactiva por
+predefini&ccedil;&atilde;o em compara&ccedil;&atilde;o com
+ferramentas especializadas do APT como o <b>apt-get</b>(8) e
+o <b>apt-cache</b>(8).</p>
+
+<p style="margin-left:11%; margin-top: 1em">Muito como o
+pr&oacute;prio <b>apt</b>, o seu manual destina-se a ser uma
+interface de utilizador final e como tal apenas menciona os
+comandos mais usados e parte das op&ccedil;&otilde;es para
+n&atilde;o duplicar informa&ccedil;&atilde;o em
+m&uacute;ltiplos locais e em parte para evitar saturar os
+leitores com uma cornuc&oacute;pia de op&ccedil;&otilde;es e
+detalhes.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>update</b>
+apt-get</p>
+
+<p style="margin-left:17%;"><b>update</b> &eacute; usado
+para descarregar informa&ccedil;&atilde;o de pacotes de
+todas as fontes configuradas. Outros comandos operam com
+estes dados para , por ex, executar
+actualiza&ccedil;&otilde;es de pacotes ou procurar e mostrar
+detalhes acerta de todos os pacotes dispon&iacute;veis para
+instala&ccedil;&atilde;o.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>upgrade</b>
+apt-get</p>
+
+<p style="margin-left:17%;">upgrade &eacute; usado para
+instalar actualiza&ccedil;&otilde;es dispon&iacute;veis de
+todos os pacotes actualmente instalados no sistema a partir
+das fontes configuradas via <b>sources.list</b>(5). Se
+necess&aacute;rio para satisfazer depend&ecirc;ncias
+ser&atilde;o instalados novos pacotes, mas pacotes
+existentes nunca ser&atilde;o removidos. Se a
+actualiza&ccedil;&atilde;o de um pacote necessitar da
+remo&ccedil;&atilde;o de um pacote instalado, a
+actualiza&ccedil;&atilde;o deste pacote n&atilde;o
+ser&aacute; executada.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>full-upgrade</b>
+apt-get</p>
+
+<p style="margin-left:17%;">full-upgrade executa a
+fun&ccedil;&atilde;o de upgrade mas ir&aacute; remover
+pacotes actualmente instalados se tal for necess&aacute;rio
+para actualizar o sistema como um todo.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>install</b>,
+<b>reinstall</b>, <b>remove</b>, <b>purge</b> apt-get</p>
+
+<p style="margin-left:17%;">Executa a ac&ccedil;&atilde;o
+requisitada em um ou mais pacotes especificados via
+<b>regex</b>(7), <b>glob</b>(7) ou por correspond&ecirc;ncia
+exacta. A ac&ccedil;&atilde;o requisitada pode ser
+sobreposta para pacotes espec&iacute;ficos ao acrescentar um
+mais (+) ao nome do pacote para instalar esse pacote ou um
+menos (-) para o remover.</p>
+
+<p style="margin-left:17%; margin-top: 1em">Pode ser
+seleccionada para instala&ccedil;&atilde;o uma vers&atilde;o
+espec&iacute;fica de um pacote ao adicionar ao nome do
+pacote o s&iacute;mbolo igual (=) e a vers&atilde;o do
+pacote a seleccionar. Alternativamente a vers&atilde;o de um
+lan&ccedil;amento espec&iacute;fico pode ser seleccionada ao
+adicionar ao nome do pacote uma barra de divis&atilde;o (/)
+e o nome de c&oacute;digo (buster, bullseye, sid ...) ou o
+nome de suite (stable, testing, unstable). Isto ir&aacute;
+tamb&eacute;m seleccionar vers&otilde;es a partir deste
+lan&ccedil;amento para as depend&ecirc;ncias deste pacote se
+necess&aacute;rio para satisfazer o pedido.</p>
+
+<p style="margin-left:17%; margin-top: 1em">Remover um
+pacote remove todos os dados empacotados, mas deixa ficar
+ficheiros (modificados) de configura&ccedil;&atilde;o do
+utilizador geralmente pequenos, para o caso da
+remo&ccedil;&atilde;o ter sido um acidente. Apenas fazer um
+pedido de instala&ccedil;&atilde;o para o pacote removido
+acidentalmente ir&aacute; restaurar a sua
+fun&ccedil;&atilde;o como estava anteriormente. Por outro
+lado voc&ecirc; pode ver-se livre desses restos ao chamar
+<b>purge</b> mesmo em pacotes j&aacute; removidos. Note que
+isto n&atilde;o afecta nenhuns dados ou
+configura&ccedil;&otilde;es armazenados no seu
+direct&oacute;rio home pessoal.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>autoremove</b>
+apt-get</p>
+
+<p style="margin-left:17%;">autoremove &eacute; usado para
+remover pacotes que foram instalados automaticamente para
+satisfazer depend&ecirc;ncias de outros pacotes e que
+j&aacute; n&atilde;o s&atilde;o necess&aacute;rios porque as
+depend&ecirc;ncias alteraram ou porque os pacotes que
+precisavam delas foram entretanto removidos.</p>
+
+<p style="margin-left:17%; margin-top: 1em">Voc&ecirc; deve
+verificar que a lista n&atilde;o inclua
+aplica&ccedil;&otilde;es de que passou a gostar apesar de
+terem sido instaladas apenas como uma depend&ecirc;ncia de
+outro pacote. Voc&ecirc; pode marcar tal pacote como
+instalado manualmente ao usar <b>apt-mark</b>(8). Os pacotes
+que voc&ecirc; instalou explicitamente via comando
+<b>install</b> tamb&eacute;m nunca s&atilde;o propostos para
+remo&ccedil;&atilde;o autom&aacute;tica.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>satisfy</b>
+apt-get</p>
+
+<p style="margin-left:17%;"><b>satisfy</b> satisfies
+dependency strings, as used in Build-Depends. It also
+handles conflicts, by prefixing an argument with
+&quot;Conflicts: &quot;.</p>
+
+<p style="margin-left:17%; margin-top: 1em">Example: apt
+satisfy &quot;foo, bar (&gt;= 1.0)&quot; &quot;Conflicts:
+baz, fuzz&quot;</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>search</b>
+(<b>apt-cache</b>(8))</p>
+
+<p style="margin-left:17%;"><b>search</b> pode ser usado
+para procurar por termo(s) <b>regex</b>(7) fornecidos na
+lista de pacotes dispon&iacute;veis e apresentar
+correspond&ecirc;ncias. Isto pode, por exemplo, ser
+&uacute;til se procura pacotes com uma caracter&iacute;stica
+espec&iacute;fica. Se est&aacute; &agrave; procura de um
+pacote que inclua um ficheiro espec&iacute;fico tente o
+<b>apt-file</b>(1).</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>show</b>
+(<b>apt-cache</b>(8))</p>
+
+<p style="margin-left:17%;">Mostra informa&ccedil;&atilde;o
+acerca do(s) pacote(s) indicados incluindo as suas
+depend&ecirc;ncias, tamanho de instala&ccedil;&atilde;o e de
+download, fontes a partir das quais o pacote est&aacute;
+dispon&iacute;vel, a descri&ccedil;&atilde;o do
+conte&uacute;do dos pacotes e muito mais. Pode, por exemplo,
+ser &uacute;til para ver esta informa&ccedil;&atilde;o antes
+de permitir ao <b>apt</b>(8) remover um pacote ou enquanto
+procura por novos pacotes para instalar.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>list</b></p>
+
+<p style="margin-left:17%;"><b>list</b> &eacute; de certa
+maneira semelhante a <b>dpkg-query --list</b> pois pode
+mostrar uma lista de pacotes que satisfa&ccedil;am certos
+crit&eacute;rios. Suporta padr&otilde;es <b>glob</b>(7) para
+coincidir com nomes de pacotes assim como
+op&ccedil;&otilde;es para listar instalados
+(<b>--installed</b>), actualiz&aacute;veis
+(<b>--upgradeable</b>) ou todas as vers&otilde;es
+dispon&iacute;veis (<b>--all-versions</b>).</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>edit-sources</b>
+(work-in-progress)</p>
+
+<p style="margin-left:17%;">edit-sources permite-lhe editar
+os seus ficheiros <b>sources.list</b>(5) no seu editor de
+texto preferido enquanto tamb&eacute;m disponibiliza
+verifica&ccedil;&otilde;es b&aacute;sicas aos mesmos.</p>
+
+<h2>UTILIZA&Ccedil;&Atilde;O DE SCRIPTS E DIFEREN&Ccedil;AS COM OUTRAS FERRAMENTAS DO APT
+<a name="UTILIZA&Ccedil;&Atilde;O DE SCRIPTS E DIFEREN&Ccedil;AS COM OUTRAS FERRAMENTAS DO APT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">A linha de
+comandos do <b>apt</b>(8) foi desenhada como ferramenta de
+utilizador final e pode variar o comportamento entre
+vers&otilde;es. Apesar de tentar n&atilde;o perder a
+compatibilidade com vers&otilde;es anteriores isto
+n&atilde;o &eacute; garantido se uma altera&ccedil;&atilde;o
+parecer ben&eacute;fica para uso interactivo.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Todas as
+funcionalidades do <b>apt</b>(8) est&atilde;o tamb&eacute;m
+dispon&iacute;veis em ferramentas dedicadas ao APT como
+<b>apt-get</b>(8) e <b>apt-cache</b>(8). O <b>apt</b>(8)
+apenas varia o valor predefinido de algumas
+op&ccedil;&otilde;es (veja <b>apt.conf</b>(5) e
+especialmente o &acirc;mbito Bin&aacute;rio). Portanto
+voc&ecirc; dever&aacute; preferir usar estes comandos
+(potencialmente com algumas op&ccedil;&otilde;es adicionais
+activas) nos seus scripts pois eles mant&ecirc;m
+compatibilidade com vers&otilde;es anteriores sempre que
+poss&iacute;vel.</p>
+
+<h2>VEJA TAMB&Eacute;M
+<a name="VEJA TAMB&Eacute;M"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>apt-get</b>(8),
+<b>apt-cache</b>(8), <b>sources.list</b>(5),
+<b>apt.conf</b>(5), <b>apt-config</b>(8), O guia de
+utilizadores do The APT em /usr/share/doc/apt-doc/,
+<b>apt_preferences</b>(5), o Howto do APT.</p>
+
+<h2>DIAGN&Oacute;STICO
+<a name="DIAGN&Oacute;STICO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>apt</b>
+devolve zero na opera&ccedil;&atilde;o normal, 100 decimal
+em erro.</p>
+
+<h2>BUGS
+<a name="BUGS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b><font color="#0000FF">p&aacute;gina
+de bugs do APT</font></b>
+<small><font color="#000000">[1]</font></small>
+<font color="#000000">. Se deseja reportar um bug no APT,
+por favor veja /usr/share/doc/debian/bug-reporting.txt ou o
+comando <b>reportbug</b>(1).</font></p>
+
+<h2>TRADU&Ccedil;&Acirc;O
+<a name="TRADU&Ccedil;&Acirc;O"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><font color="#000000">A
+tradu&ccedil;&atilde;o Portuguesa foi feita por
+Am&eacute;rico Monteiro &lt;a_monteiro@netcabo.pt&gt; de
+2009 a 2012. A tradu&ccedil;&atilde;o foi revista pela
+equipa de tradu&ccedil;&otilde;es portuguesas da Debian
+&lt;traduz@debianpt.org&gt;.</font></p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><font color="#000000">Note
+que este documento traduzido pode conter partes n&atilde;o
+traduzidas. Isto &eacute; feito propositadamente, para
+evitar perdas de conte&uacute;do quando a
+tradu&ccedil;&atilde;o est&aacute; atrasada relativamente ao
+conte&uacute;do original.</font></p>
+
+<h2>AUTOR
+<a name="AUTOR"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><font color="#000000"><b>Equipa
+do APT</b></font></p>
+
+<h2>NOTAS
+<a name="NOTAS"></a>
+</h2>
+
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="12%"></td>
+<td width="3%">
+
+
+
+<p style="margin-top: 1em"><font color="#000000">1.</font></p> </td>
+<td width="2%"></td>
+<td width="32%">
+
+
+
+<p style="margin-top: 1em"><font color="#000000">p&aacute;gina
+de bugs do APT</font></p></td>
+<td width="51%">
+</td></tr>
+</table>
+
+
+<p style="margin-left:17%;"><font color="#000000">http://bugs.debian.org/src:apt</font></p>
+<hr>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Wed Sep 15 11:11:01 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>GLOB</title>
+
+</head>
+<body>
+
+<h1 align="center">GLOB</h1>
+
+<a href="#NOME">NOME</a><br>
+<a href="#DESCRI&Ccedil;&Atilde;O">DESCRI&Ccedil;&Atilde;O</a><br>
+<a href="#CASAMENTO DE CORINGAS">CASAMENTO DE CORINGAS</a><br>
+<a href="#NOMES DE CAMINHOS">NOMES DE CAMINHOS</a><br>
+<a href="#LISTAS VAZIAS">LISTAS VAZIAS</a><br>
+<a href="#NOTAS">NOTAS</a><br>
+<a href="#VEJA TAMB&Eacute;M">VEJA TAMB&Eacute;M</a><br>
+<a href="#TRADUZIDO POR LDP-BR em 21/08/2000.">TRADUZIDO POR LDP-BR em 21/08/2000.</a><br>
+
+<hr>
+
+
+<h2>NOME
+<a name="NOME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">glob - Caminhos
+de diret&oacute;rios de englobamento</p>
+
+<h2>DESCRI&Ccedil;&Atilde;O
+<a name="DESCRI&Ccedil;&Atilde;O"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Muito tempo
+atr&aacute;s, no Unix V6, havia um programa <i>/etc/glob</i>
+que poderia expandir os padr&otilde;es de coringas. Logo em
+seguida, isso se tornaria embutido no interpretador de
+comandos.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Nos dias de
+hoje, tamb&eacute;m h&aacute; uma rotina de biblioteca
+<b>glob</b>(3) que realizar&aacute; esta
+fun&ccedil;&atilde;o para um programa de usu&aacute;rio.</p>
+
+<p style="margin-left:11%; margin-top: 1em">As regras
+s&atilde;o as que seguem (POSIX 1003.2, 3.13).</p>
+
+<h2>CASAMENTO DE CORINGAS
+<a name="CASAMENTO DE CORINGAS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Uma cadeia de
+caracteres &eacute; um padr&atilde;o de coringas se contiver
+um ou mais caracteres &rsquo;?&rsquo;, &rsquo;*&rsquo; ou
+&rsquo;[&rsquo;. Englobamento &eacute; a
+opera&ccedil;&atilde;o que expande um padr&atilde;o de
+coringas para uma lista de nomes de caminhos que casam com o
+padr&atilde;o. Casamento &eacute; definido por:</p>
+
+<p style="margin-left:11%; margin-top: 1em">Um
+&rsquo;?&rsquo; (n&atilde;o entre colchetes) casa com
+qualquer caractere unit&aacute;rio.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Um
+&rsquo;*&rsquo; (n&atilde;o entre colchetes) casa com
+qualquer string, incluindo uma cadeia de caracteres
+vazia.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Classes de
+caracteres</b> <br>
+Uma express&atilde;o &rsquo;[...]&rsquo; onde o primeiro
+caractere depois do primeiro &rsquo;[&rsquo; n&atilde;o
+&eacute; um &rsquo;!&rsquo; que casa com um caractere
+unit&aacute;rio, desde que seja um dos caracteres de dentro
+dos colchetes. A string cercada pelos colchetes n&atilde;o
+pode estar vazia: portanto &rsquo;]&rsquo; &eacute; um
+caractere permitido entre os colchetes, desde que seja o
+primeiro caractere. Portanto, &rsquo;[][!]&rsquo; casa com
+os tr&ecirc;s caracteres &rsquo;[&rsquo;, &rsquo;]&rsquo; e
+&rsquo;!&rsquo;.)</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Faixas</b>
+<br>
+H&aacute; uma conven&ccedil;&atilde;o especial: dois
+caracteres separados por &rsquo;-&rsquo; denotam uma faixa.
+(Portanto, &rsquo;[A-Fa-f0-9]&rsquo; &eacute; equivalente a
+&rsquo;[ABCDEFabcdef0123456789]&rsquo;.) &Eacute;
+poss&iacute;vel incluir &rsquo;-&rsquo; com seu significado
+literal ao coloc&aacute;-lo em primeiro ou em &uacute;ltimo
+entre os caracteres dentro dos colchetes. (Portanto,
+&rsquo;[]-]&rsquo; casa apenas com os dois caracteres
+&rsquo;]&rsquo; e &rsquo;-&rsquo;, e &rsquo;[--/]&rsquo;
+casa com os tr&ecirc;s caracteres &rsquo;-&rsquo;,
+&rsquo;.&rsquo;, &rsquo;/&rsquo;.)</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>Complementa&ccedil;&atilde;o</b>
+<br>
+Uma express&atilde;o &rsquo;[!...]&rsquo; casa com um
+caractere unit&aacute;rio, desde que seja um caractere
+n&atilde;o presente na express&atilde;o obtida pela
+remo&ccedil;&atilde;o do primeiro &rsquo;!&rsquo;.
+(Portanto, &rsquo;[!]a-]&rsquo; casa com qualquer caractere
+unit&aacute;rio, exceto &rsquo;]&rsquo;, &rsquo;a&rsquo; e
+&rsquo;-&rsquo;.)</p>
+
+<p style="margin-left:11%; margin-top: 1em">&Eacute;
+poss&iacute;vel remover o significado especial de
+&rsquo;?&rsquo;, &rsquo;*&rsquo; e &rsquo;[&rsquo;
+precedendo-os por uma barra invertida, ou, caso seja parte
+de uma linha de comando do shell, cercando-os com aspas.
+Entre colchetes, estes caracteres respondem por eles mesmos.
+Portanto, &rsquo;[[?*\]&rsquo; casa com os quatro caracteres
+&rsquo;[&rsquo;, &rsquo;?&rsquo;, &rsquo;*&rsquo; e
+&rsquo;\&rsquo;.</p>
+
+<h2>NOMES DE CAMINHOS
+<a name="NOMES DE CAMINHOS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Englobamento
+&eacute; a aplica&ccedil;&atilde;o de cada um dos
+componentes de um nome de caminho separadamente. Um
+&rsquo;/&rsquo; em um nome de caminho n&atilde;o pode casar
+com um coringa &rsquo;?&rsquo; ou &rsquo;*&rsquo;, ou com
+uma faixa como &rsquo;[.-0]&rsquo;. Uma faixa n&atilde;o
+pode conter um caractere &rsquo;/&rsquo; expl&iacute;cito;
+isto levaria a um erro de sintaxe.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Se um nome de
+arquivo come&ccedil;a com um &rsquo;.&rsquo;, este caractere
+deve ser casado explicitamente. (Portanto, &rsquo;rm
+*&rsquo; n&atilde;o remover&aacute; .profile, e &rsquo;tar c
+*&rsquo; n&atilde;o arquivar&aacute; todos os seus arquivos:
+&rsquo;tar c .&rsquo; &eacute; melhor.)</p>
+
+<h2>LISTAS VAZIAS
+<a name="LISTAS VAZIAS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">A bela e
+simples regra dada acima: &rsquo;expanda um padr&atilde;o de
+coringas na lista de caminhos de diret&oacute;rio de
+casamento&rsquo; foi a defini&ccedil;&atilde;o padr&atilde;o
+do Unix. Ela permite padr&otilde;es que se expandam para uma
+lista vazia, como em</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="8%"></td>
+<td width="7%"></td>
+<td width="85%">
+
+
+<p>xv -wait 0 *.gif *.jpg</p></td></tr>
+</table>
+
+<p style="margin-left:11%;">onde talvez nenhum arquivo
+*.gif esteja presente (e isto n&atilde;o &eacute; um erro).
+Por&eacute;m, o POSIX requer que um padr&atilde;o de
+coringas seja deixado inalterado quando estiver
+sintaticamente incorreto, ou a lista de nomes de caminhos
+esteja vazia. Com <i>bash</i> pode-se for&ccedil;ar o
+comportamento cl&aacute;ssico, setando-se
+<i>allow_null_glob_expansion=true</i>.</p>
+
+<p style="margin-left:11%; margin-top: 1em">(Problemas
+similares ocorrem em toda a parte. Por exemplo, onde
+h&aacute; em scripts antigos</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="8%"></td>
+<td width="92%">
+
+
+<p>rm &rsquo;find . -name &quot;*~&quot;&rsquo;</p></td></tr>
+</table>
+
+<p style="margin-left:11%;">os novos scripts requerem</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="8%"></td>
+<td width="92%">
+
+
+<p>rm -f nosuchfile &rsquo;find . -name
+&quot;*~&quot;&rsquo;</p> </td></tr>
+</table>
+
+<p style="margin-left:11%;">para evitar mensagens de erro
+de <i>rm</i> chamado com uma lista de argumentos vazia.)</p>
+
+<h2>NOTAS
+<a name="NOTAS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>Express&otilde;es
+regulares</b> <br>
+Note que padr&otilde;es de coringas n&atilde;o s&atilde;o
+express&otilde;es regulares, apesar de que s&atilde;o um
+pouco similares. Primeiramente, eles casam com nomes de
+arquivos em vez de texto, e em segundo lugar, as
+conven&ccedil;&otilde;es n&atilde;o s&atilde;o as mesmas:
+por exemplo, em uma express&atilde;o regular &rsquo;*&rsquo;
+significa zero ou mais c&oacute;pias da coisa
+precedente.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Agora que as
+express&otilde;es regulares t&ecirc;m express&otilde;es com
+colchetes, onde a nega&ccedil;&atilde;o &eacute; indicada
+por um &rsquo;^&rsquo;, o POSIX declarou que o efeito de um
+padr&atilde;o de coringa &rsquo;[^...]&rsquo; &eacute;
+indefinido.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Classes de
+caracteres e Internationaliza&ccedil;&atilde;o</b> <br>
+Obviamente, faixas significavam originalmente as faixas
+ASCII, de forma que &rsquo;[ -%]&rsquo; significa &rsquo;[
+!&quot;#$%]&rsquo; e &rsquo;[a-z]&rsquo; significa
+&quot;qualquer letra min&uacute;scula&quot;. Algumas
+implementa&ccedil;&otilde;es Unix generalizaram isso, de tal
+forma que que uma faixa X-Y significa o conjunto de
+caracteres com c&oacute;digo entre o c&oacute;digo de X e o
+de Y. Por&eacute;m, isso requer que o usu&aacute;rio saiba o
+c&oacute;digo do caractere em uso no sistema local, e
+al&eacute;m disso, n&atilde;o &eacute; conveniente se a
+seq&uuml;&ecirc;ncia de confer&ecirc;ncia para o alfabeto
+local difere da ordena&ccedil;&atilde;o dos c&oacute;digos
+de caractere. Portanto, POSIX estendeu grandemente a
+nota&ccedil;&atilde;o de colchetes, tanto nos padr&otilde;es
+de coringas quanto nas express&otilde;es regulares.
+Anteriormente, n&oacute;s vimos tr&ecirc;s tipos de itens
+que podem ocorrer em uma express&atilde;o em colchetes: (i)
+a nega&ccedil;&atilde;o, (ii) caracteres unit&aacute;rios
+explicitados e (iii) faixas. POSIX especifica faixas de uma
+forma internacionalmente mais &uacute;til, e acrescenta mais
+tr&ecirc;s tipos:</p>
+
+<p style="margin-left:11%; margin-top: 1em">(iv) Faixas X-Y
+compreendem todos os caractees que caem entre X e Y
+(inclusive) na seq&uuml;&ecirc;ncia de confer&ecirc;ncia
+corrente, como definido pela categoria LC_COLLATE no locale
+corrente.</p>
+
+<p style="margin-left:11%; margin-top: 1em">(iv) Classes
+nomeadas de caracteres, como <br>
+[:alnum:] [:alpha:] [:blank:] [:cntrl:] <br>
+[:digit:] [:graph:] [:lower:] [:print:] <br>
+[:punct:] [:space:] [:upper:] [:xdigit:] <br>
+, de forma que se pode dizer &rsquo;[[:lower:]]&rsquo;
+(min&uacute;sculo) em vez de &rsquo;[a-z]&rsquo;, e funciona
+na Dinamarca tamb&eacute;m, onde h&aacute; tr&ecirc;s letras
+depois do &rsquo;z&rsquo; no alfabeto. Essas classes de
+caracteres s&atilde;o definidas pela categoria LC_CTYPE na
+localiza&ccedil;&atilde;o atual.</p>
+
+<p style="margin-left:11%; margin-top: 1em">(v)
+S&iacute;mbolos de confer&ecirc;ncia, como
+&rsquo;[.ch.]&rsquo; ou &rsquo;[.a-acute.]&rsquo;, onde a
+string entre &rsquo;[.&rsquo; e &rsquo;.]&rsquo; &eacute; um
+elemento de confer&ecirc;ncia definido na
+localiza&ccedil;&atilde;o atual. Note que este pode ser um
+elemento multi-caractere.</p>
+
+<p style="margin-left:11%; margin-top: 1em">(vi)
+Express&otilde;es de classes de equival&ecirc;ncia, como
+&rsquo;[=a=]&rsquo;, onde a string entre &rsquo;[=&rsquo; e
+&rsquo;=]&rsquo; &eacute; um elemento de confer&ecirc;ncia
+qualquer da sua classe de equival&ecirc;ncia, como &eacute;
+definido no locale corrente. Por exemplo,
+&rsquo;[[=a=]]&rsquo; deve ser equivalente a
+&rsquo;[a&aacute;&agrave;&auml;&acirc;]&rsquo; (cuidado:
+Latin-1 aqui), ou seja, a
+&rsquo;[a[.a-acute.][.a-grave.][.a-umlaut.][.a-circumflex.]]&rsquo;.</p>
+
+<h2>VEJA TAMB&Eacute;M
+<a name="VEJA TAMB&Eacute;M"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>sh</b>(1),
+<b>glob</b>(3), <b>fnmatch</b>(3), <b>locale</b>(7),
+<b>regex</b>(7)</p>
+
+<h2>TRADUZIDO POR LDP-BR em 21/08/2000.
+<a name="TRADUZIDO POR LDP-BR em 21/08/2000."></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Rubens de Jesus
+Nogueira &lt;darkseid99@usa.net&gt; (tradu&ccedil;&atilde;o)
+Andr&eacute; L. Fassone Canova &lt;lonelywolf@blv.com.br&gt;
+(revis&atilde;o)</p>
+<hr>
+</body>
+</html>

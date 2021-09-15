@@ -1,0 +1,31 @@
+site_name: Gerenciamento de pacotes no Debian e derivados
+site_author: Jurandy Soares
+
+theme:
+  name: material
+  language: pt
+
+nav:
+  - index.md
+  - agenda.md
+  - termos.md
+  - pacotes.md
+  - fonte.md
+  - dpkg.md
+  - apt:
+    - introducao.md
+    - list.md
+    - search.md
+    - show.md
+    - install.md
+    - reinstall.md
+    - remove.md
+    - autoremove.md
+    - update.md
+    - upgrade.md
+    - full-upgrade.md
+    - edit-sources.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      linenums: true

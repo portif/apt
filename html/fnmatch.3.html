@@ -1,0 +1,151 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Wed Sep 15 11:17:31 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>FNMATCH</title>
+
+</head>
+<body>
+
+<h1 align="center">FNMATCH</h1>
+
+<a href="#NOME">NOME</a><br>
+<a href="#SINOPSE">SINOPSE</a><br>
+<a href="#DESCRI&Ccedil;&Atilde;O">DESCRI&Ccedil;&Atilde;O</a><br>
+<a href="#VALOR DE RETORNO">VALOR DE RETORNO</a><br>
+<a href="#CONFORME">CONFORME</a><br>
+<a href="#VEJA TAMB&Eacute;M">VEJA TAMB&Eacute;M</a><br>
+<a href="#TRADU&Ccedil;&Atilde;O PARA A L&Iacute;NGUA PORTUGUESA">TRADU&Ccedil;&Atilde;O PARA A L&Iacute;NGUA PORTUGUESA</a><br>
+
+<hr>
+
+
+<h2>NOME
+<a name="NOME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">fnmatch -
+encontra o nome do arquivo ou o caminho de
+diret&oacute;rio</p>
+
+<h2>SINOPSE
+<a name="SINOPSE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>#include
+&lt;fnmatch.h&gt;</b></p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>int
+fnmatch(const char *</b><i>pattern</i><b>, const char
+*</b><i>string</i><b>, int</b> <i>flags</i><b>);</b></p>
+
+<h2>DESCRI&Ccedil;&Atilde;O
+<a name="DESCRI&Ccedil;&Atilde;O"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">A
+fun&ccedil;&atilde;o <b>fnmatch()</b> verifica se o
+argumento <i>string</i> casa com o argumento <i>pattern</i>
+, que &eacute; um padr&atilde;o de coringa do shell.</p>
+
+<p style="margin-left:11%; margin-top: 1em">O argumento
+<i>flags</i> modifica o comportamento; &eacute; uma
+opera&ccedil;&atilde;o OU bit-a-bit de zero ou mais das
+seguintes flags: <b><br>
+FNM_NOESCAPE</b></p>
+
+<p style="margin-left:22%;">Se esta flag &eacute; setada,
+trata a barra invertida como um caractere ordin&aacute;rio,
+em vez de um caractere de escape.</p>
+
+<p style="margin-left:11%;"><b>FNM_PATHNAME</b></p>
+
+<p style="margin-left:22%;">Se esta flag &eacute; setada,
+casa uma barra normal em <i>string</i> somente com uma barra
+normal em <i>pattern</i> , e n&atilde;o, por exemplo, com
+uma sequ&ecirc;ncia [] - contendo uma barra normal.</p>
+
+<p style="margin-left:11%;"><b>FNM_PERIOD</b></p>
+
+<p style="margin-left:22%;">Se esta flag &eacute; setada,
+um ponto final no in&iacute;cio de <i>string</i> tem que
+casar exatamente com um ponto final em <i>pattern</i>. Um
+ponto final &eacute; considerado inicial se for o primeiro
+caractere em <i>string</i>, ou se <b>FNM_PATHNAME</b>
+&eacute; setado e o ponto final vem imediatamente
+ap&oacute;s uma barra normal.</p>
+
+<p style="margin-left:11%;"><b>FNM_FILE_NAME</b></p>
+
+<p style="margin-left:22%;">Este &eacute; um sin&ocirc;nimo
+GNU para <b>FNM_PATHNAME</b>.</p>
+
+<p style="margin-left:11%;"><b>FNM_LEADING_DIR</b></p>
+
+<p style="margin-left:22%;">Se esta flag (uma
+extens&atilde;o GNU) &eacute; setada, o modelo &eacute;
+considerado como sendo casado se ele casa com um segmento
+inicial de <i>string</i> que &eacute; seguido por uma barra
+normal.</p>
+
+<p style="margin-left:11%;"><b>FNM_CASEFOLD</b></p>
+
+<p style="margin-left:22%;">Se esta flag (uma
+extens&atilde;o GNU) &eacute; setada, o modelo &eacute;
+casado sem diferencia&ccedil;&atilde;o de mai&uacute;sculas
+e min&uacute;sculas.</p>
+
+<h2>VALOR DE RETORNO
+<a name="VALOR DE RETORNO"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Zero se
+<i>string</i> casa com <i>pattern</i>, <b>FNM_NOMATCH</b> se
+n&atilde;o h&aacute; casamento, ou outro valor diferente de
+zero se houver erro.</p>
+
+<h2>CONFORME
+<a name="CONFORME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">ISO/IEC 9945-2:
+1993 (POSIX.2). As flags <b>FNM_FILE_NAME</b>,
+<b>FNM_LEADING_DIR</b>, and <b>FNM_CASEFOLD</b> s&atilde;o
+extens&otilde;es GNU.</p>
+
+<h2>VEJA TAMB&Eacute;M
+<a name="VEJA TAMB&Eacute;M"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>sh</b>(1),
+<b>glob</b>(3), <b>glob</b>(7)</p>
+
+<h2>TRADU&Ccedil;&Atilde;O PARA A L&Iacute;NGUA PORTUGUESA
+<a name="TRADU&Ccedil;&Atilde;O PARA A L&Iacute;NGUA PORTUGUESA"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">RUBENS DE JESUS
+NOGUEIRA &lt;darkseid99@usa.net&gt; (tradu&ccedil;&atilde;o)
+XXXXXX XX XXXXX XXXXXXXX &lt;xxxxxxxxxx@xxx.xxx&gt;
+(revis&atilde;o)</p>
+<hr>
+</body>
+</html>

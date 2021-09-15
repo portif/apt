@@ -1,0 +1,432 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Wed Sep 15 11:11:17 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>REGEX</title>
+
+</head>
+<body>
+
+<h1 align="center">REGEX</h1>
+
+<a href="#NOME">NOME</a><br>
+<a href="#DESCRI&Ccedil;&Atilde;O">DESCRI&Ccedil;&Atilde;O</a><br>
+<a href="#VEJA TAMB&Eacute;M">VEJA TAMB&Eacute;M</a><br>
+<a href="#PROBLEMAS">PROBLEMAS</a><br>
+<a href="#AUTOR">AUTOR</a><br>
+<a href="#TRADUZIDO POR LDP-BR em 21/08/2000.">TRADUZIDO POR LDP-BR em 21/08/2000.</a><br>
+
+<hr>
+
+
+<h2>NOME
+<a name="NOME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">regex -
+express&otilde;es regulares do POSIX 1003.2</p>
+
+<h2>DESCRI&Ccedil;&Atilde;O
+<a name="DESCRI&Ccedil;&Atilde;O"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">Express&otilde;es
+regulares (ERs), como definidas no POSIX 1003.2, v&ecirc;m
+em duas formas: REs modernas (grosseiramente, aquelas de
+<i>egrep</i>; o 1003.2 chama essas de ERs
+&quot;estendidas&quot; ERs) e ERs obsoletas (grosseiramente,
+aquelas de <b>ed</b>(1); REs &quot;b&aacute;sicas&quot; do
+1003.2). REs obsoletas existem principalmente por causa de
+compatibilidade retr&oacute;grada em alguns programas
+antigos; eles ser&atilde;o discutidos no final. O 1003.2
+deixa alguns aspectos da sintaxe e da sem&acirc;ntica das
+ERs em aberto; port&aacute;veis para outras
+implementa&ccedil;&otilde;es do 1003.2.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Uma (moderna)
+ER &eacute; uma&dagger; ou mais&dagger;
+<i>ramifica&ccedil;&otilde;es</i>&dagger;
+n&atilde;o-vazias&dagger; , separadas por &rsquo;|&rsquo;.
+Ele encontra tudo o que casa com uma das
+ramifica&ccedil;&otilde;es.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Uma
+ramifica&ccedil;&atilde;o &eacute; um&dagger; ou mais
+<i>peda&ccedil;os</i>, concatenados. Ele encontra um
+casamento para o primeiro, seguido por um casamento para o
+segundo, etc.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Um
+peda&ccedil;o &eacute; um <i>&aacute;tomo</i> possivelmente
+seguido por um &dagger; &rsquo;*&rsquo;, &rsquo;+&rsquo;, Um
+&aacute;tomo seguido por &rsquo;*&rsquo; encontra uma
+sequ&ecirc;ncia de 0 ou mais casamentos do &aacute;tomo. Um
+&aacute;tomo seguido por &rsquo;+&rsquo; encontra uma
+sequ&ecirc;ncia de 1 ou mais casamentos do &aacute;tomo. Um
+&aacute;tomo seguido por &rsquo;?&rsquo; encontra uma
+sequ&ecirc;ncia de 0 ou 1 casamento do &aacute;tomo.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Uma
+composi&ccedil;&atilde;o &eacute; &rsquo;{&rsquo; seguido
+por um inteiro decimal sem sinal, possivelmente seguido por
+&rsquo;,&rsquo; , possivelmente seguido por outro inteiro
+decimal sem sinal, sempre seguido por &rsquo;}&rsquo;. Os
+inteiros devem estar entre 0 e RE_DUP_MAX (255&dagger;)
+inclusive, e se houver dois deles, o primeiro e n&atilde;o
+pode exceder o segundo. Um &aacute;tomo seguido por uma
+composi&ccedil;&atilde;o contendo um inteiro <i>i</i>, sem
+v&iacute;rgula, encontra uma sequ&ecirc;ncia de <i>i</i> ou
+mais casamentos do &aacute;tomo. Um &aacute;tomo seguido por
+uma composi&ccedil;&atilde;o contendo dois inteiros <i>i</i>
+encontra uma sequencia de um mais <i>i</i> casamentos do
+&aacute;tomo. Um &aacute;tomo seguido por uma
+composi&ccedil;&atilde;o contendo dois inteiros <i>i</i> e
+<i>j</i> encontra uma sequ&ecirc;ncia de <i>i</i> at&eacute;
+<i>j</i> (inclusive) casamentos do &aacute;tomo.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Um &aacute;tomo
+&eacute; uma express&atilde;o regular englobada em
+&rsquo;()&rsquo; (encontrando um casamento para a
+express&atilde;o regular), um conjunto vazio de
+&rsquo;()&rsquo; (encontrando a string nula)&dagger;, uma
+<i>express&atilde;o agrupada</i> (ver abaixo),
+&rsquo;.&rsquo; (encontrando qualquer caractere simples),
+&rsquo;^&rsquo; (encontrando a string nula no come&ccedil;o
+de uma linha), &rsquo;$&rsquo; (encontrando a string nula no
+fim de uma linha), um &rsquo;\&rsquo; seguido de um dos
+caracteres (encontrando aquele caractere tomado como um
+caractere ordin&aacute;rio), um &rsquo;\&rsquo; seguido por
+qualquer outro caractere&dagger; (encontrando aquele
+caractere tomado como um caractere ordin&aacute;rio, como se
+o &rsquo;\&rsquo; n&atilde;o estivesse presente&dagger;), ou
+um caractere simples se outro significado (encontrando
+qualquer caractere). Um &rsquo;{&rsquo; seguido por um
+caractere diferente de um d&iacute;gito &eacute; um
+caractere ordin&aacute;rio, n&atilde;o o in&iacute;cio de
+uma composi&ccedil;&atilde;o&dagger;. &Eacute; ilegal
+terminar uma ER com &rsquo;\&rsquo;.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Uma
+<i>express&atilde;o agrupada</i> &eacute; uma lista de
+caracteres englobados por um &rsquo;[]&rsquo;. Ele
+normalmente encontra qualquer caractere simples da lista
+(mas veja abaixo). Se a lista come&ccedil;a com
+&rsquo;^&rsquo;, ele encontra qualquer caractere simples
+(mas veja abaixo) que n&atilde;o venha do resto da lista. Se
+dois caracteres na lista s&atilde;o separados por
+&rsquo;-&rsquo;, isto &eacute; uma abrevia&ccedil;&atilde;o
+para a <i>range</i> completa de caracteres entre aqueles
+dois (inclusive) na sequ&ecirc;ncia de
+combina&ccedil;&atilde;o, por exemplo, &rsquo;[0-9]&rsquo;
+em ASCII encontra qualquer d&iacute;gito decimal. &Eacute;
+ilegal &dagger; que duas faixas compartilhem um ponto final,
+por exemplo, &rsquo;a-c-e&rsquo;. As faixas s&atilde;o muito
+dependentes de sequ&ecirc;ncia de combina&ccedil;&atilde;o,
+e programas port&aacute;veis devem evitar confiar nelas.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Para incluir um
+literal &rsquo;]&rsquo; na lista, torne-o o primeiro
+caractere (seguindo um poss&iacute;vel &rsquo;^&rsquo;).
+Para incluir um literal &rsquo;-&rsquo;, torne-o o primeiro
+ou o &uacute;ltimo caractere, ou o segundo ponto final da
+faixa. Para usar um literal &rsquo;-&rsquo; como o primeiro
+ponto final da faixa, englobe-o entre &rsquo;[.&rsquo; e
+&rsquo;.]&rsquo; para torn&aacute;-lo um elemento de
+combina&ccedil;&atilde;o (veja abaixo). Com a
+exce&ccedil;&atilde;o destas e algumas
+combina&ccedil;&otilde;es usando &rsquo;[&rsquo; (veja os
+pr&oacute;ximos par&aacute;grafos), todos os outros
+caracteres especiais, incluindo &rsquo;\&rsquo;, perdem seu
+significado especial dentro de uma express&atilde;o
+agrupada.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Dentro de uma
+express&atilde;o agrupada, um elemento de
+combina&ccedil;&atilde;o (um caractere, uma sequ&ecirc;ncia
+multi-caractere que combina como se fosse um caractere
+simples, ou um nome de sequ&ecirc;ncia de
+combina&ccedil;&atilde;o se for o caso) englobado entre
+&rsquo;[.&rsquo; e &rsquo;.]&rsquo; significa a
+sequ&ecirc;ncia de caracteres daquele elemento de
+combina&ccedil;&atilde;o. A sequ&ecirc;ncia &eacute; um
+elemento simples de uma lista de express&otilde;es agrupada.
+Uma express&atilde;o agrupada contendo um elemento de
+combina&ccedil;&atilde;o multi-caractere pode, portanto,
+encontrar mais de um caractere, por exemplo, se a
+sequ&ecirc;ncia de combina&ccedil;&atilde;o inclui um
+elemento de combina&ccedil;&atilde;o &rsquo;ch&rsquo;,
+ent&atilde;o a ER &rsquo;[[.ch.]]*c&rsquo; encontra os
+primeiros cinco caracteres de &rsquo;chchcc&rsquo;.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Dentro de uma
+express&atilde;o agrupada, um elemento de
+combina&ccedil;&atilde;o englobado por &rsquo;[=&rsquo; e
+&rsquo;=]&rsquo; &eacute; uma classe equivalente, que
+significa uma sequ&ecirc;ncia de caracteres com todos os
+elementos de combina&ccedil;&atilde;o equivalentes a aquele,
+incluindo ele mesmo. (Se n&atilde;o houver outro elemento de
+combina&ccedil;&atilde;o equivalente, o tratamento &eacute;
+como se os delimitadores fossem &rsquo;[.&rsquo; e
+&rsquo;.]&rsquo;.) Por exemplo, se o e ^ s&atilde;o os
+membros de uma classe equivalente, ent&atilde;o
+&rsquo;[[=o=]]&rsquo;, &rsquo;[[=^=]]&rsquo;, e
+&rsquo;[o^]&rsquo; s&atilde;o todos sin&ocirc;nimos. Uma
+classe equivalente n&atilde;o pode &dagger; ser um ponto
+final de uma faixa.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Dentro de uma
+express&atilde;o agrupada, o nome de uma <i>classe de
+caractere</i> englobado por &rsquo;[:&rsquo; e
+&rsquo;:]&rsquo; significa a lista de todos os caracteres
+pertencente &agrave;quela classe. Os nomes padr&atilde;o de
+classes de caracteres s&atilde;o:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="19%">
+
+
+<p>alnum</p></td>
+<td width="17%">
+
+
+<p>digit</p></td>
+<td width="46%">
+
+
+<p>punct</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="19%">
+
+
+<p>alpha</p></td>
+<td width="17%">
+
+
+<p>graph</p></td>
+<td width="46%">
+
+
+<p>space</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="19%">
+
+
+<p>blank</p></td>
+<td width="17%">
+
+
+<p>lower</p></td>
+<td width="46%">
+
+
+<p>upper</p></td></tr>
+<tr valign="top" align="left">
+<td width="22%"></td>
+<td width="-4%"></td>
+<td width="19%">
+
+
+<p>cntrl</p></td>
+<td width="17%">
+
+
+<p>print</p></td>
+<td width="46%">
+
+
+<p>xdigit</p></td></tr>
+</table>
+
+<p style="margin-left:11%; margin-top: 1em">Isto vale para
+as classes de caracteres definidas em <b>ctype</b>(3). Um
+locale pode fornecer outros. Uma classe de caracteres
+n&atilde;o pode ser usada como um ponto final de uma
+faixa.</p>
+
+<p style="margin-left:11%; margin-top: 1em">H&aacute; dois
+casos especiais de express&otilde;es de colchetes: as
+express&otilde;es &rsquo;[[:&lt;:]]&rsquo; e
+&rsquo;[[:&gt;:]]&rsquo; casam com a string nula no
+in&iacute;cio e no fim de uma palavra, respectivamente. Uma
+palavra &eacute; definida como uma sequ&ecirc;ncia de
+caracteres de palavras que n&atilde;o &eacute; precedida e
+nem seguida por caracteres de palavra. Um caractere de
+palavra &eacute; um caractere <i>alnum</i> (como definido
+por <b>ctype</b>(3)) ou um sublinhado. Esta &eacute; uma
+extens&atilde;o, compat&iacute;vel mas n&atilde;o
+espec&iacute;fica do POSIX 1003.2, e deve ser usada com
+cautela em softwares que pretendem ser port&aacute;veis para
+outros sistemas.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Em um evento em
+que uma ER encontraria mais de uma substring de uma string
+dada, a ER encontra aquela que inicia mais pr&oacute;xima do
+in&iacute;cio da string. Se a ER pode encontrar mais que uma
+substring come&ccedil;ando naquele ponto, ela encontra a
+mais longa. Sub-express&otilde;es tamb&eacute;m podem
+encontrar a substring mais longa poss&iacute;vel,
+sujeitando-se &agrave; limita&ccedil;&atilde;o de o
+casamento todo ser t&atilde;o longo quanto poss&iacute;vel,
+com sub-express&otilde;es iniciando primeiro na ER tendo
+prioridade sobre aquelas iniciando posteriormente. Note que
+sub-express&otilde;es de n&iacute;vel mais alto, portanto,
+t&ecirc;m prioridade sobre suas sub-express&otilde;es
+componentes de n&iacute;vel mais baixo.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Os comprimentos
+dos casamentos s&atilde;o medidos em caracteres, e
+n&atilde;o em elementos de combina&ccedil;&atilde;o. Uma
+string nula &eacute; considerada mais longa do que um caso
+de n&atilde;o se encontrar nada. Por exemplo, quando
+&rsquo;(.*).*&rsquo; &eacute; aplicado em &rsquo;abc&rsquo;
+a sub-express&atilde;o entre par&ecirc;nteses casa todos os
+tr&ecirc;s caracteres, e quando &rsquo;(a*)*&rsquo; &eacute;
+aplicado em &rsquo;bc&rsquo; ambas as ERs inteiras e a
+sub-express&atilde;o entre par&ecirc;nteses encontram a
+string nula.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Se casamento
+independente da caixa &eacute; especificado, o efeito
+&eacute; tal como se todas as distin&ccedil;&otilde;es de
+caixa sumissem do alfabeto. Quando um alfab&eacute;tico que
+existe em m&uacute;ltiplos casos aparece como um caractere
+ordin&aacute;rio fora de uma express&atilde;o de colchete,
+&eacute; transformado efetivamente em uma express&atilde;o
+de colchetes contendo ambos os casos, por exemplo,
+&rsquo;x&rsquo; se torna &rsquo;[^xX]&rsquo;. Quando ele
+aparece dentro de uma express&atilde;o de colchetes, todos
+os casos equivalentes a ele s&atilde;o acrescentados
+&agrave; express&atilde;o de colchetes, de forma que (por
+exemplo) &rsquo;[x]&rsquo; se torna &rsquo;[xX]&rsquo; e
+&rsquo;[^xX]&rsquo;.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Nenhum limite
+particular &eacute; imposto sobre o comprimento das
+ERs&dagger;. Programas que pretendem ser port&aacute;veis
+n&atilde;o devem empregar ERs maiores de 256 bytes, pois uma
+implementa&ccedil;&atilde;o pode negar-se a aceitar tais ERs
+para continuar compat&iacute;vel com o POSIX.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">Express&otilde;es
+regulares obsoletas (&quot;b&aacute;sicas&quot;) diferem em
+v&aacute;rios aspectos. Os sinais &rsquo;+&rsquo;,
+&rsquo;|&rsquo; e &rsquo;?&rsquo; s&atilde;o caracteres
+ordin&aacute;rios e n&atilde;o h&aacute; equivalentes para
+suas funcionalidades. Os delimitadores para
+composi&ccedil;&atilde;o s&atilde;o &rsquo;\{&rsquo; and
+&rsquo;\}&rsquo;, com &rsquo;{&rsquo; e &rsquo;}&rsquo; por
+eles mesmos caracteres ordin&aacute;rios. Os
+par&ecirc;nteses para sub-express&otilde;es aninhadas
+s&atilde;o &rsquo;\(&rsquo; e &rsquo;\)&rsquo;, com
+&rsquo;(&rsquo; e &rsquo;)&rsquo;, por eles mesmos
+caracteres ordin&aacute;rios. O &rsquo;^&rsquo; &eacute; um
+caractere ordin&aacute;rio, exceto no come&ccedil;o de uma
+ER ou &dagger; no come&ccedil;o de uma sub-express&atilde;o
+com par&ecirc;nteses, o &rsquo;$&rsquo; &eacute; um
+caractere ordin&aacute;rio, exceto no fim da ER ou &dagger;
+no fim da sub-express&atilde;o com par&ecirc;nteses, e
+&rsquo;*&rsquo; &eacute; um caractere ordin&aacute;rio se
+ele aparece no come&ccedil;o da ER ou no come&ccedil;o de
+uma sub-express&atilde;o com par&ecirc;nteses (depois de um
+poss&iacute;vel &rsquo;^&rsquo; dianteiro). Finalmente,
+h&aacute; um novo tipo de &aacute;tomo, uma
+<i>refer&ecirc;ncia para tr&aacute;s</i>: casa com a mesma
+sequ&ecirc;ncia de caracteres casada pela
+sub-express&atilde;o de par&ecirc;nteses (numerando
+sub-express&otilde;es pelas posi&ccedil;&otilde;es dos seus
+par&ecirc;nteses abertos, da esquerda para a direita), tal
+que (por exemplo) &rsquo;\([bc]\)\1&rsquo; case com
+&rsquo;bb&rsquo; ou &rsquo;cc&rsquo;, mas n&atilde;o com
+&rsquo;bc&rsquo;.</p>
+
+<h2>VEJA TAMB&Eacute;M
+<a name="VEJA TAMB&Eacute;M"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>regex</b>(3)</p>
+
+<p style="margin-left:11%; margin-top: 1em">POSIX 1003.2,
+se&ccedil;&atilde;o 2.8 (Nota&ccedil;&atilde;o de
+Express&atilde;o Regular).</p>
+
+<h2>PROBLEMAS
+<a name="PROBLEMAS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Ter dois tipos
+de ERs &eacute; uma devasta&ccedil;&atilde;o.</p>
+
+<p style="margin-left:11%; margin-top: 1em">A
+especifica&ccedil;&atilde;o corrente do 1003.2 diz que
+&rsquo;)&rsquo; &eacute; um caractere ordin&aacute;rio na
+aus&ecirc;ncia de um &rsquo;(&rsquo; n&atilde;o casado; este
+era um resultado n&atilde;o-intencional de um erro de
+palavreamento, e mudan&ccedil;as s&atilde;o parecidas. Evite
+confiar nela.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em">Refer&ecirc;ncias
+para tr&aacute;s s&atilde;o uma destrui&ccedil;&atilde;o
+terr&iacute;vel, causando problemas s&eacute;rios em
+implementa&ccedil;&otilde;es eficientes. Elas tamb&eacute;m
+s&atilde;o definidas um pouco vagamente (fazendo Evite
+us&aacute;-las.</p>
+
+<p style="margin-left:11%; margin-top: 1em">A
+especifica&ccedil;&atilde;o 1003.2 para casamentos
+independentes de caixa &eacute; vaga. A
+defini&ccedil;&atilde;o &quot;um caso implica em todos os
+casos&quot; dada acima &eacute; um consenso corrente entre
+implementadores como a interpreta&ccedil;&atilde;o
+correta.</p>
+
+<p style="margin-left:11%; margin-top: 1em">A sintaxe para
+os limites de palavra &eacute; incrivelmente feia.</p>
+
+<h2>AUTOR
+<a name="AUTOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Esta
+p&aacute;gina foi tomada do pacote regex de Henry
+Spencer.</p>
+
+<h2>TRADUZIDO POR LDP-BR em 21/08/2000.
+<a name="TRADUZIDO POR LDP-BR em 21/08/2000."></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Rubens de Jesus
+Nogueira &lt;darkseid99@usa.net&gt; (tradu&ccedil;&atilde;o)
+Andr&eacute; L. Fassone Canova &lt;lonelywolf@blv.com.br&gt;
+(revis&atilde;o)</p>
+<hr>
+</body>
+</html>
