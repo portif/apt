@@ -16,7 +16,11 @@ Instalação simultânea de vários pacotes:
 
 - `apt install bat exa micro`
 - `apt install figlet cowsay lolcat`
-- `apt install language-pack-pt manpages-pt manpages-pt-dev`
+
+Instalação de vários pacotes por meio de tarefas:
+- `apt install task-brazilian-portuguese`
+- `apt install task-ssh-server`
+- `apt install task-web-server`
 
 ## Seus exemplos
 
