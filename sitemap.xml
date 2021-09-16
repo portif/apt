@@ -1,78 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/agenda/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/termos/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/pacotes/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/repositorios/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/dpkg/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/apt/introducao/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/apt/fontes/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/apt/list/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/apt/search/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/apt/show/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/apt/install/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/apt/remove/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/apt/autoremove/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/apt/update/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/apt/upgrade/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/apt/full-upgrade/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/apt/edit-sources/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://portif.github.io/apt/snap/</loc>
      <lastmod>2021-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
