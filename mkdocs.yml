@@ -1,5 +1,6 @@
 site_name: Gerenciamento de pacotes no Debian e derivados
 site_author: Jurandy Soares
+site_url: https://portif.github.io/apt/
 
 theme:
   name: material
@@ -32,3 +33,7 @@ nav:
 markdown_extensions:
   - pymdownx.highlight:
       linenums: true
+
+extra:
+  disqus: bicharada-ifrn
+

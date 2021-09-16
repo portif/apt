@@ -1,6 +1,7 @@
 # Comando `apt-file`
 
 Uso:
+
 - `apt-file [opções] ação [padrão]`
 - `apt-file [opções] -f ação <arquivo>`
 - `apt-file [opções] -D ação <debfile>`
