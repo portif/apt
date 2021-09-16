@@ -12,17 +12,23 @@
       
         <meta name="author" content="Jurandy Soares">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
     
     
       
-        <title>Comando `apt install` - Gerenciamento de pacotes no Debian e derivados</title>
+        <title>Autorremoção - Gerenciamento de pacotes no Debian e derivados</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4dd2dd8d.min.css">
       
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.6a5ad368.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4cae4f">
       
     
     
@@ -42,7 +48,10 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -51,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#comando-apt-install" class="md-skip">
+        <a href="#comando-apt-autoremove" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -62,7 +71,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href=".." title="Gerenciamento de pacotes no Debian e derivados" class="md-header-nav__button md-logo" aria-label="Gerenciamento de pacotes no Debian e derivados">
+    <a href="../.." title="Gerenciamento de pacotes no Debian e derivados" class="md-header-nav__button md-logo" aria-label="Gerenciamento de pacotes no Debian e derivados">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -79,7 +88,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Comando `apt install`
+              Autorremoção
             
           </span>
         </div>
@@ -136,7 +145,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Gerenciamento de pacotes no Debian e derivados" class="md-nav__button md-logo" aria-label="Gerenciamento de pacotes no Debian e derivados">
+    <a href="../.." title="Gerenciamento de pacotes no Debian e derivados" class="md-nav__button md-logo" aria-label="Gerenciamento de pacotes no Debian e derivados">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -153,7 +162,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Gerenciamento de pacotes no Debian e derivados" class="md-nav__link">
+    <a href="../.." title="Gerenciamento de pacotes no Debian e derivados" class="md-nav__link">
       Gerenciamento de pacotes no Debian e derivados
     </a>
   </li>
@@ -165,7 +174,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../agenda/" title="Agenda" class="md-nav__link">
+    <a href="../../agenda/" title="Agenda" class="md-nav__link">
       Agenda
     </a>
   </li>
@@ -177,7 +186,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../termos/" title="Termos" class="md-nav__link">
+    <a href="../../termos/" title="Termos" class="md-nav__link">
       Termos
     </a>
   </li>
@@ -189,7 +198,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../pacotes/" title="Pacotes" class="md-nav__link">
+    <a href="../../pacotes/" title="Pacotes" class="md-nav__link">
       Pacotes
     </a>
   </li>
@@ -201,7 +210,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../repositorios/" title="Repositórios" class="md-nav__link">
+    <a href="../../repositorios/" title="Repositórios" class="md-nav__link">
       Repositórios
     </a>
   </li>
@@ -213,7 +222,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../dpkg/" title="dpkg" class="md-nav__link">
+    <a href="../../dpkg/" title="dpkg" class="md-nav__link">
       dpkg
     </a>
   </li>
@@ -223,65 +232,112 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../apt/" title="apt" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
       apt
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../fonte/" title="Fonte de pacotes" class="md-nav__link">
-      Fonte de pacotes
-    </a>
-  </li>
-
-    
-      
-      
-      
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="apt" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        apt
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../list/" title="Comando `apt list`" class="md-nav__link">
-      Comando `apt list`
+    <a href="../introducao/" title="Introdução" class="md-nav__link">
+      Introdução
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../search/" title="Comando `apt search`" class="md-nav__link">
-      Comando `apt search`
+    <a href="../fontes/" title="Fonte" class="md-nav__link">
+      Fonte
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../show/" title="Comando `apt show`" class="md-nav__link">
-      Comando `apt show`
+    <a href="../list/" title="Listagem" class="md-nav__link">
+      Listagem
     </a>
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../search/" title="Busca" class="md-nav__link">
+      Busca
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../show/" title="Exibição" class="md-nav__link">
+      Exibição
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install/" title="Instalação" class="md-nav__link">
+      Instalação
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../remove/" title="Remoção" class="md-nav__link">
+      Remoção
+    </a>
+  </li>
+
+        
+          
+          
+          
 
   
 
@@ -294,12 +350,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Comando `apt install`
+        Autorremoção
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="Comando `apt install`" class="md-nav__link md-nav__link--active">
-      Comando `apt install`
+    <a href="./" title="Autorremoção" class="md-nav__link md-nav__link--active">
+      Autorremoção
     </a>
     
       
@@ -335,16 +391,57 @@
     
   </li>
 
-    
-      
-      
-      
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
-    <a href="../remove/" title="Comando `apt remove`" class="md-nav__link">
-      Comando `apt remove`
+    <a href="../update/" title="Catálogo" class="md-nav__link">
+      Catálogo
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../upgrade/" title="Atualização" class="md-nav__link">
+      Atualização
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../full-upgrade/" title="Atualização completa" class="md-nav__link">
+      Atualização completa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../edit-sources/" title="Edição das fontes" class="md-nav__link">
+      Edição das fontes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -354,67 +451,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../autoremove/" title="Comando `apt autoremove`" class="md-nav__link">
-      Comando `apt autoremove`
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../update/" title="Comando `apt update`" class="md-nav__link">
-      Comando `apt update`
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../upgrade/" title="Comando `apt upgrade`" class="md-nav__link">
-      Comando `apt upgrade`
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../full-upgrade/" title="Comando `apt full-upgrade`" class="md-nav__link">
-      Comando `apt full-upgrade`
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../edit-sources/" title="Comando `apt edit-sources`" class="md-nav__link">
-      Comando `apt edit-sources`
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../snap/" title="snap" class="md-nav__link">
+    <a href="../../snap/" title="snap" class="md-nav__link">
       snap
     </a>
   </li>
@@ -473,21 +510,31 @@
                   
                 
                 
-                <h1 id="comando-apt-install">Comando <code>apt install</code></h1>
-<p>O comando <code>apt install</code> instala um ou mais pacotes especificados via <a href="../man/regex.md">regex</a>, <a href="../man/glob.md">glob</a> ou por correspondência exata.</p>
+                <h1 id="comando-apt-autoremove">Comando <code>apt autoremove</code></h1>
+<p>O comando <code>apt autoremove</code> é usado para remover pacotes que foram instalados automaticamente para satisfazer dependências de outros pacotes e que já não são necessários porque as dependências alteraram ou porque os pacotes que precisavam delas foram entretanto removidos.</p>
 <h2 id="exemplos">Exemplos</h2>
-<p>Instalação individual de pacotes:</p>
+<p>Simulação da remoção automática de pacotes:</p>
 <ul>
-<li><code>apt install ipython3</code></li>
-<li><code>apt install bpython3</code></li>
-<li><code>apt install git</code></li>
-<li><code>apt install mkdocs</code></li>
+<li><code>apt -s autoremove</code></li>
 </ul>
-<p>Instalação simultânea de vários pacotes:</p>
+<p>Saída:</p>
+<pre><code>NOTE:   Isto é apenas uma simulação!
+        o apt necessita de privilégios de root para a execução real.
+        Tenha em mente que o acesso exclusivo está desabilitado,
+        por isso não confie na relevância da real situação actual!
+Lendo listas de pacotes... Pronto
+Construindo árvore de dependências
+Lendo informação de estado... Pronto
+Os pacotes a seguir serão REMOVIDOS:
+  git-man liberror-perl libstd-rust-1.47
+0 pacotes atualizados, 0 pacotes novos instalados, 3 a serem removidos e 0 não atualizados.Remv git-man [1:2.25.1-1ubuntu3.2]
+Remv liberror-perl [0.17029-1]
+Remv libstd-rust-1.47 [1.47.0+dfsg1+llvm-1ubuntu1~20.04.1]
+</code></pre>
+
+<p>Remoção automática de pacotes:</p>
 <ul>
-<li><code>apt install bat exa micro</code></li>
-<li><code>apt install figlet cowsay lolcat</code></li>
-<li><code>apt install language-pack-pt manpages-pt manpages-pt-dev</code></li>
+<li><code>apt autoremove</code></li>
 </ul>
 <h2 id="seus-exemplos">Seus exemplos</h2>
 <p>Deixe seus exemplos na área de comentários.</p>
@@ -496,6 +543,10 @@
               
                 
 
+
+  <h2 id="__comments">Comentários</h2>
+  <div id="disqus_thread"></div>
+  <script>var disqus_config=function(){this.page.url="None",this.page.identifier="None"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//bicharada-ifrn.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
 
               
             </article>
@@ -509,7 +560,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../show/" title="Comando `apt show`" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../remove/" title="Remoção" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -518,19 +569,19 @@
                 <span class="md-footer-nav__direction">
                   Anterior
                 </span>
-                Comando `apt show`
+                Remoção
               </div>
             </div>
           </a>
         
         
-          <a href="../remove/" title="Comando `apt remove`" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../update/" title="Catálogo" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Próximo
                 </span>
-                Comando `apt remove`
+                Catálogo
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -557,15 +608,15 @@
       
     </div>
     
-      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
-      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
+      <script src="../../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "search.config.lang": "pt", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Digite para iniciar a busca", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados"}</script>
       
       <script>
         app = initialize({
-          base: "..",
+          base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
