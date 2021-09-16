@@ -453,11 +453,39 @@
                 
                 
                 <h1 id="snap">snap</h1>
-<p>Instalação de pacotes autônomos, sem dependência de outros.</p>
-<ul>
-<li>Pacote: <code>snapd</code></li>
-<li>Comando: <code>snap</code></li>
-</ul>
+<blockquote>
+<p><strong>Snaps</strong> são pacotes de aplicativos para desktop, nuvem e IoT fáceis de instalar, seguros, entre plataformas e sem dependências. Os snaps podem ser descobertos e instalados na Snap Store, a loja de aplicativos para Linux com um público de milhões.</p>
+<p>Um <strong>snap</strong> é um pacote de um aplicativo e suas dependências que funciona sem modificação nas distribuições Linux.</p>
+<p><strong>Snapd</strong> é o serviço de segundo plano que gerencia e mantém seus snaps, automaticamente.</p>
+<p>O <strong>Snap Store</strong> fornece um local [...] para os usuários navegar e instalar o software que desejam. 
+Fonte: <a href="https://snapcraft.io/about">https://snapcraft.io/about</a></p>
+</blockquote>
+<p>Para instalar pacotes por meio do comando <code>snap</code>, antes é necessário instalar o pacote <code>snapd</code>, o serviço (<em>daemon</em>) do <code>snap</code>.</p>
+<p>Segue a ajuda do comando <code>snap</code>:</p>
+<pre><code>O comando snap permite instalar, configurar, atualizar e remover snaps.
+Os Snaps são pacotes que funcionam em muitas distribuições Linux diferentes,
+permitindo a entrega e operação seguras das aplicações e utilitários mais recentes.
+
+Uso: snap &lt;command&gt; [&lt;options&gt;...]
+
+Os comandos geralmente usados podem ser classificados da seguinte forma:
+
+      Noções Básicas: find, info, install, remove, list
+             ...mais: refresh, revert, switch, disable, enable, create-cohort
+           Histórico: changes, tasks, abort, watch
+             Daemons: services, start, stop, restart, logs
+          Permissões: connections, interface, connect, disconnect
+        Configuração: get, set, unset, wait
+  Pseudónimos de App: alias, aliases, unalias, prefer
+               Conta: login, logout, whoami
+           Snapshots: saved, save, check-snapshot, restore, forget
+         Dispositivo: model, reboot, recovery
+     Desenvolvimento: download, pack, run, try
+           ... Other: warnings, okay, known, ack, version
+
+Para obter mais informações sobre um comando, execute 'snap help &lt;command&gt;'.
+Para um breve resumo de todos os comandos, execute 'snap help --all'.
+</code></pre>
                 
               
               
