@@ -4,7 +4,9 @@ O comando `apt search` pode ser usado para procurar por [expressões regulares](
 
 ## Exemplos
 
-Pesquisar por pacotes que 
+Pesquisar por pacotes relacionados a markdown:
+
+- `apt search markdown`
 
 ## Seus exemplos
 

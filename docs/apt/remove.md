@@ -7,14 +7,17 @@ Remover um pacote remove todos os dados empacotados, mas deixa ficar arquivos (m
 ## Exemplos
 
 Remover um pacote:
+
 - `apt remove git`
 
-No exemplo anterior, o arquivo ``/etc/bash_completion.d/git-prompt` foi mantido no sistema.
+No exemplo anterior, o arquivo `/etc/bash_completion.d/git-prompt` foi mantido no sistema.
 
 Remover vários pacotes:
+
 - `apt remove ipython3 bpython3`
 
 Remover um pacote e expurgar (*purge* em inglês) seu(s) arquivo(s) de configuração:
+
 - `apt purge git`
 
 ## Seus exemplos

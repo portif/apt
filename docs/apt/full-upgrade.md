@@ -5,9 +5,11 @@ O comando `full-upgrade` executa a função de atualização (Comando [apt upgra
 ## Exemplos
 
 Atualização completa do sistema:
+
 - `apt full-upgrade`
 
 Simulação da atualização completa do sistema:
+
 - `apt --simulate full-upgrade`
 - `apt -s full-upgrade`
 

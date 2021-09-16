@@ -5,6 +5,7 @@ O comando `apt autoremove` é usado para remover pacotes que foram instalados au
 ## Exemplos
 
 Simulação da remoção automática de pacotes:
+
 - `apt -s autoremove`
 
 Saída:
@@ -24,6 +25,7 @@ Remv libstd-rust-1.47 [1.47.0+dfsg1+llvm-1ubuntu1~20.04.1]
 ```
 
 Remoção automática de pacotes:
+
 - `apt autoremove`
 
 ## Seus exemplos

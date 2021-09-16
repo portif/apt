@@ -11,6 +11,7 @@ O comando `apt update` é usado para baixar informação de pacotes de todas as 
 ## Exemplo
 
 Atualizar o catálogo de pacotes disponíveis:
+
 - `apt update`
 
 ## Seus exemplos

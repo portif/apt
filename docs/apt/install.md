@@ -6,14 +6,16 @@ O comando `apt install` instala um ou mais pacotes especificados via [regex](../
 ## Exemplos
 
 Instalação individual de pacotes:
+
 - `apt install ipython3`
 - `apt install bpython3`
 - `apt install git`
 - `apt install mkdocs`
 
 Instalação simultânea de vários pacotes:
+
 - `apt install bat exa micro`
-- `apt install figlet cowsay`
+- `apt install figlet cowsay lolcat`
 - `apt install language-pack-pt manpages-pt manpages-pt-dev`
 
 ## Seus exemplos

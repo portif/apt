@@ -4,27 +4,30 @@ site_author: Jurandy Soares
 theme:
   name: material
   language: pt
+  palette:
+    primary: green
 
 nav:
   - index.md
   - agenda.md
   - termos.md
   - pacotes.md
-  - fonte.md
+  - repositorios.md
   - dpkg.md
   - apt:
-    - introducao.md
-    - list.md
-    - search.md
-    - show.md
-    - install.md
-    - reinstall.md
-    - remove.md
-    - autoremove.md
-    - update.md
-    - upgrade.md
-    - full-upgrade.md
-    - edit-sources.md
+    - Introdução: apt/introducao.md
+    - Fonte: apt/fontes.md
+    - Listagem: apt/list.md
+    - Busca: apt/search.md
+    - Exibição: apt/show.md
+    - Instalação: apt/install.md
+    - Remoção: apt/remove.md
+    - Autorremoção: apt/autoremove.md
+    - Catálogo: apt/update.md
+    - Atualização: apt/upgrade.md
+    - Atualização completa: apt/full-upgrade.md
+    - Edição das fontes: apt/edit-sources.md
+  - snap.md
 
 markdown_extensions:
   - pymdownx.highlight:
